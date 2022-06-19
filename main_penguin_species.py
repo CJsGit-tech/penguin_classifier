@@ -11,6 +11,13 @@ st.title('Penguin Classifier')
 st.write("This app uses 6 inputs to predict the species of penguin using a model built on the Palmer's Penguin's dataset. Use\
 the form below to get started!")
 
+###################################
+st.subheader("Enter Password")
+password_guess = st.text_input('What is the Password?')
+if password_guess != st.secrets['password']:
+    st.stop()
+####################################
+
 # Read In Models and Classes
 model = open('model_training_script/random_forest/random_forest_model.pickle','rb')
 classes = open('model_training_script/random_forest/classes_map.pickle','rb')
