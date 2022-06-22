@@ -4,7 +4,20 @@ import numpy as np
 import seaborn as sns 
 import matplotlib.pyplot as plt
 import pickle
+from streamlit_lottie import st_lottie
+import requests
 st.set_page_config(page_title='Penguin Classifier',layout='centered',)
+
+def load_lottie(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+url = 'https://assets10.lottiefiles.com/datafiles/fZa46kiFXcqYseC/data.json'
+animation_data = load_lottie(url)
+st_lottie(animation_data,height=200)
+
 
 
 st.title('Penguin Classifier')
